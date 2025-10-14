@@ -43,5 +43,6 @@ namespace MCook.Models
     [Display(Name = "Modo de Preparo")]
     [Required(ErrorMessage = "O Modo de Preparo é obrigatório")]
     public string Preparo { get; set; } 
+    public List<ReceitaIngrediente> Ingredientes { get; set; }
     }
 }

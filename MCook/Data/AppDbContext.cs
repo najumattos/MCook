@@ -1,4 +1,5 @@
 using MCook.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -26,6 +27,13 @@ public class AppDbContext : IdentityDbContext<Usuario>
 
             #region Definição de nomes do Identity
             builder.Entity<Usuario>().ToTable("usuario");
+            builder.Entity<IdentityRole>().ToTable("perfil");
+            builder.Entity<IdentityUserRole<string>>().ToTable("usuario_perfil");
+            builder.Entity<IdentityUserClaim<string>>().ToTable("usuario_regra");
+            builder.Entity<IdentityUserToken<string>>().ToTable("usuario_token");
+            builder.Entity<IdentityUserLogin<string>>().ToTable("usuario_login");
+            builder.Entity<IdentityRoleClaim<string>>().ToTable("perfil_regrra");
+
             #endregion
     }
 }
